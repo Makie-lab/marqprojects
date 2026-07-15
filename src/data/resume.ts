@@ -7,13 +7,23 @@ export interface Education {
   description: string;
 }
 
-export interface Experience {
-  company: string;
-  title: string;
+export interface Organization {
+  organization: string;
+  role: string;
   startDate: string;
   endDate: string;
   description: string;
-  highlights: string[];
+}
+
+export interface ClassroomOfficer {
+  position: string;
+  period: string;
+  semester: string;
+}
+
+export interface Project {
+  name: string;
+  description: string;
 }
 
 export interface SkillGroup {
@@ -21,112 +31,130 @@ export interface SkillGroup {
   skills: string[];
 }
 
-export interface Certification {
-  name: string;
-  issuer: string;
-  date: string;
-}
-
 export const education: Education[] = [
   {
-    institution: "University of Technology",
+    institution: "Polytechnic University of the Philippines Quezon City Campus",
     degree: "Bachelor of Science",
-    field: "Computer Science",
-    startDate: "2018",
-    endDate: "2022",
+    field: "Information Technology",
+    startDate: "2024",
+    endDate: "Present",
     description:
-      "Focused on software engineering, algorithms, and distributed systems. Dean's List honors. Senior capstone project on real-time collaborative editing.",
+      "Currently a 2nd year BS IT student. Active in student organizations and leadership roles.",
   },
   {
-    institution: "Tech Academy",
-    degree: "Certificate",
-    field: "Full-Stack Web Development Bootcamp",
+    institution: "Antipolo City National Science and Technology High School",
+    degree: "Senior High School",
+    field: "Science and Technology",
     startDate: "2022",
-    endDate: "2022",
+    endDate: "2024",
     description:
-      "Intensive 16-week program covering modern web development with React, Node.js, databases, and cloud deployment. Built 5 production-ready applications.",
+      "Completed senior high school education with a focus on science and technology.",
   },
 ];
 
-export const experience: Experience[] = [
+export const organizations: Organization[] = [
   {
-    company: "TechCorp Inc.",
-    title: "Senior Full-Stack Developer",
-    startDate: "2023",
+    organization: "PUP QC - Commonwealth Information Technology Society",
+    role: "Creatives Committee",
+    startDate: "September 2024",
+    endDate: "June 2025",
+    description:
+      "Tasked to create publication materials for the Facebook page through Canva.",
+  },
+  {
+    organization: "Google Developer Groups on Campus PUP",
+    role: "Graphic Designer",
+    startDate: "September 2025",
+    endDate: "June 2026",
+    description:
+      "Designed and published promotional materials using Canva and Figma for organizational events and announcements.",
+  },
+  {
+    organization: "PUP QC - Commonwealth Information Technology Society",
+    role: "Auditor",
+    startDate: "September 2025",
+    endDate: "June 2026",
+    description:
+      "Assisted in auditing financial transactions and collaborated with various student organizations to ensure accurate financial records.",
+  },
+  {
+    organization: "Vox Nova",
+    role: "Layout Designer",
+    startDate: "September 2025",
+    endDate: "June 2026",
+    description:
+      "Tasked to create publication materials through Canva, an independent student organization towards political works inside the campus.",
+  },
+  {
+    organization: "Siklaw",
+    role: "Layout Designer",
+    startDate: "September 2025",
+    endDate: "June 2026",
+    description:
+      "Created visual assets through Canva and Figma.",
+  },
+  {
+    organization: "Office of Cultural Affairs",
+    role: "Creatives Committee",
+    startDate: "September 2025",
     endDate: "Present",
     description:
-      "Lead developer on the core platform team, architecting and building scalable web applications serving 100k+ users.",
-    highlights: [
-      "Architected microservices migration reducing response times by 40%",
-      "Led team of 4 developers on flagship product redesign",
-      "Implemented CI/CD pipeline reducing deployment time from hours to minutes",
-    ],
+      "Created visual assets through Canva.",
+  },
+];
+
+export const classroomOfficer: ClassroomOfficer[] = [
+  {
+    position: "Public Information Officer",
+    period: "September 2024 - February 2025",
+    semester: "1st Year, 1st Semester",
   },
   {
-    company: "StartupXYZ",
-    title: "Full-Stack Developer",
-    startDate: "2022",
-    endDate: "2023",
-    description:
-      "Built and maintained multiple client-facing applications using React, Node.js, and PostgreSQL in a fast-paced startup environment.",
-    highlights: [
-      "Developed real-time dashboard used by 50+ enterprise clients",
-      "Reduced API response times by 60% through query optimization",
-      "Mentored 2 junior developers on best practices",
-    ],
+    position: "President",
+    period: "February 2025 - June 2025",
+    semester: "1st Year, 2nd Semester",
   },
   {
-    company: "Digital Agency Co.",
-    title: "Software Engineering Intern",
-    startDate: "2021",
-    endDate: "2022",
-    description:
-      "Contributed to client projects across various industries, gaining experience in full lifecycle development from design to deployment.",
-    highlights: [
-      "Built responsive landing pages for 10+ client projects",
-      "Developed internal tooling that saved 20 hours/week of manual work",
-      "Participated in code reviews and agile ceremonies",
-    ],
+    position: "Vice President Internal",
+    period: "September 2025 - June 2026",
+    semester: "2nd Year, 1st Semester to 2nd Semester",
+  },
+];
+
+export const projects: Project[] = [
+  {
+    name: "Cafe Marahuyo Inventory and POS System",
+    description: "An inventory management and point-of-sale system for a cafe business.",
+  },
+  {
+    name: "SpotCheck - Parking Management System",
+    description: "A parking management system for monitoring and managing parking spaces.",
+  },
+  {
+    name: "Side Quest - Task Management System",
+    description: "A task management application for organizing and tracking tasks.",
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "React Native", "HTML/CSS"],
+    category: "Design",
+    skills: ["Canva", "Figma", "UI/UX Design", "Publication Design"],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "Express", "Python", "Go", "REST APIs", "GraphQL"],
+    category: "Programming",
+    skills: ["Python", "C", "C#", "SQL"],
   },
   {
-    category: "Database",
-    skills: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "SQL"],
-  },
-  {
-    category: "DevOps",
-    skills: ["Docker", "Kubernetes", "AWS", "CI/CD", "Terraform", "Vercel"],
+    category: "Web Development",
+    skills: ["HTML", "CSS", "JavaScript"],
   },
   {
     category: "Tools",
-    skills: ["Git", "GitHub Actions", "Figma", "VS Code", "Linux", "Jira"],
-  },
-];
-
-export const certifications: Certification[] = [
-  {
-    name: "AWS Solutions Architect - Associate",
-    issuer: "Amazon Web Services",
-    date: "2023",
+    skills: ["Git", "GitHub", "VS Code"],
   },
   {
-    name: "Google Cloud Professional Developer",
-    issuer: "Google Cloud",
-    date: "2023",
-  },
-  {
-    name: "Certified Kubernetes Application Developer",
-    issuer: "CNCF",
-    date: "2024",
+    category: "Other",
+    skills: ["Team Leadership", "Publication Design", "Creative Problem-Solving"],
   },
 ];

@@ -3,27 +3,27 @@ import GlassCard from "@/components/GlassCard";
 
 const educationItems = [
   {
-    title: "B.S. Computer Science",
-    subtitle: "University of Technology",
-    date: "2018 - 2022",
+    title: "B.S. Information Technology",
+    subtitle: "Polytechnic University of the Philippines Quezon City Campus",
+    date: "2024 - Present",
     description:
-      "Focused on software engineering, algorithms, and distributed systems. Dean's List honors.",
+      "Currently a 2nd year BS IT student. Active in student organizations and leadership roles.",
   },
   {
-    title: "Full-Stack Web Development Bootcamp",
-    subtitle: "Tech Academy",
-    date: "2022",
+    title: "Senior High School",
+    subtitle: "Antipolo City National Science and Technology High School",
+    date: "2022 - 2024",
     description:
-      "Intensive 16-week program covering modern web development with React, Node.js, and cloud deployment.",
+      "Completed senior high school education with a focus on science and technology.",
   },
 ];
 
 const skills = [
-  { category: "Frontend", items: "React, Next.js, TypeScript, Tailwind CSS, React Native" },
-  { category: "Backend", items: "Node.js, Express, Python, Go, GraphQL" },
-  { category: "Database", items: "PostgreSQL, MongoDB, Redis, Prisma" },
-  { category: "DevOps", items: "Docker, Kubernetes, AWS, Terraform, CI/CD" },
-  { category: "Tools", items: "Git, Figma, VS Code, GitHub Actions, Linux" },
+  { category: "Design", items: "Canva, Figma, UI/UX Design, Publication Design" },
+  { category: "Programming", items: "Python, C, C#, SQL" },
+  { category: "Web Development", items: "HTML, CSS, JavaScript" },
+  { category: "Tools", items: "Git, GitHub, VS Code" },
+  { category: "Other", items: "Team Leadership, Creative Problem-Solving" },
 ];
 
 export default function AboutPage() {
@@ -42,14 +42,15 @@ export default function AboutPage() {
         <div>
           <h1 className="text-3xl sm:text-4xl font-bold mb-4">About Me</h1>
           <p className="text-lg opacity-70 leading-relaxed mb-4">
-            I am a full-stack developer and designer passionate about building modern web experiences.
-            With expertise spanning frontend, backend, and infrastructure, I create scalable
-            applications that blend beautiful design with robust engineering.
+            I am an Information Technology student at PUP Quezon City with experience in UI/UX
+            design, publication materials, and student leadership. Skilled in Canva, Figma, and
+            front-end development, with a strong interest in software development and creative
+            problem-solving.
           </p>
           <p className="text-lg opacity-70 leading-relaxed">
-            When I am not coding, you can find me exploring new technologies, contributing to open
-            source projects, or designing user interfaces that push the boundaries of what is possible
-            on the web.
+            Outside of academics, I actively contribute to student organizations as a graphic
+            designer, layout designer, and auditor. I enjoy creating visual assets and publication
+            materials that communicate ideas effectively.
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import GlassCard from "@/components/GlassCard";
-import { education, experience, skillGroups, certifications } from "@/data/resume";
-import { Download, Award } from "lucide-react";
+import { education, organizations, classroomOfficer, projects, skillGroups } from "@/data/resume";
+import { Download, Briefcase, GraduationCap, FolderOpen } from "lucide-react";
 
 export default function ResumePage() {
   return (
@@ -9,7 +9,7 @@ export default function ResumePage() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 animate-fade-in">
         <div>
           <h1 className="text-4xl sm:text-5xl font-bold mb-2">Resume</h1>
-          <p className="text-lg opacity-60">My professional background and qualifications.</p>
+          <p className="text-lg opacity-60">My background, skills, and involvement.</p>
         </div>
         <a
           href="#"
@@ -20,28 +20,38 @@ export default function ResumePage() {
         </a>
       </div>
 
-      {/* Experience */}
+      {/* Organizations */}
       <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6">Experience</h2>
+        <h2 className="text-2xl font-bold mb-6">Organizations</h2>
         <div className="space-y-4">
-          {experience.map((exp, i) => (
+          {organizations.map((org, i) => (
             <GlassCard key={i} className="p-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                <h3 className="font-semibold text-lg">{exp.title}</h3>
+                <h3 className="font-semibold text-lg">{org.role}</h3>
                 <span className="text-sm opacity-50">
-                  {exp.startDate} - {exp.endDate}
+                  {org.startDate} - {org.endDate}
                 </span>
               </div>
-              <p className="text-sm font-medium opacity-70 mb-3">{exp.company}</p>
-              <p className="text-sm opacity-60 mb-3">{exp.description}</p>
-              <ul className="space-y-1">
-                {exp.highlights.map((highlight, j) => (
-                  <li key={j} className="text-sm opacity-60 flex items-start gap-2">
-                    <span className="text-xs mt-1.5 block w-1 h-1 rounded-full bg-current opacity-40 flex-shrink-0" />
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-sm font-medium opacity-70 mb-3">{org.organization}</p>
+              <p className="text-sm opacity-60">{org.description}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </section>
+
+      {/* Classroom Officer */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6">Classroom Officer</h2>
+        <div className="space-y-3">
+          {classroomOfficer.map((item, i) => (
+            <GlassCard key={i} className="p-4 flex items-center gap-4">
+              <Briefcase size={20} className="opacity-60 flex-shrink-0" />
+              <div>
+                <h3 className="font-medium">{item.position}</h3>
+                <p className="text-sm opacity-50">
+                  {item.semester} ({item.period})
+                </p>
+              </div>
             </GlassCard>
           ))}
         </div>
@@ -90,18 +100,16 @@ export default function ResumePage() {
         </div>
       </section>
 
-      {/* Certifications */}
+      {/* Projects */}
       <section>
-        <h2 className="text-2xl font-bold mb-6">Certifications</h2>
+        <h2 className="text-2xl font-bold mb-6">Projects</h2>
         <div className="space-y-3">
-          {certifications.map((cert, i) => (
+          {projects.map((project, i) => (
             <GlassCard key={i} className="p-4 flex items-center gap-4">
-              <Award size={20} className="opacity-60 flex-shrink-0" />
+              <FolderOpen size={20} className="opacity-60 flex-shrink-0" />
               <div>
-                <h3 className="font-medium">{cert.name}</h3>
-                <p className="text-sm opacity-50">
-                  {cert.issuer} - {cert.date}
-                </p>
+                <h3 className="font-medium">{project.name}</h3>
+                <p className="text-sm opacity-50">{project.description}</p>
               </div>
             </GlassCard>
           ))}
