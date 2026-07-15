@@ -11,13 +11,15 @@ export default function Footer() {
             at the top when they arrive and at the bottom when they finish scrolling,
             reinforcing brand recognition on every page.
           */}
-          <div className="flex flex-col leading-none font-black text-sm tracking-tight opacity-80">
-            <span>MA</span>
-            <span>RQ</span>
+          <div className="flex-1 flex justify-center md:justify-start">
+            <div className="flex flex-col leading-none font-black text-sm tracking-tight opacity-80">
+              <span>MA</span>
+              <span>RQ</span>
+            </div>
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex-1 flex items-center justify-center space-x-4">
             <a
               href="#"
               className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
@@ -47,9 +49,11 @@ export default function Footer() {
             site content and projects displayed. The year is dynamically generated so
             it always stays current without manual updates.
           */}
-          <p className="text-xs opacity-50 tracking-wide">
-            &copy; {new Date().getFullYear()} MARQ. All rights reserved.
-          </p>
+          <div className="flex-1 flex justify-center md:justify-end">
+            <p className="text-xs opacity-50 tracking-wide">
+              &copy; {new Date().getFullYear()} MARQ. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </footer>
