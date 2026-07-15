@@ -12,7 +12,8 @@
 :root {
   --background: #FFFFFF;
   --foreground: #000000;
-  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg-nav: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(0, 0, 0, 0.1);
   --glass-shadow: rgba(0, 0, 0, 0.05);
 }
@@ -20,9 +21,10 @@
 .dark {
   --background: #0A0A0A;
   --foreground: #FFFFFF;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(30, 30, 30, 0.7);
+  --glass-bg-nav: rgba(20, 20, 20, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -59,17 +61,19 @@ body {
 }
 
 .glass-nav {
-  background: var(--glass-bg);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
+  background: var(--glass-bg-nav);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 1px 3px var(--glass-shadow);
 }
 
 .glass-footer {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--glass-bg-nav);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-top: 1px solid var(--glass-border);
+  box-shadow: 0 -1px 3px var(--glass-shadow);
 }
 
 .glass-hover {
