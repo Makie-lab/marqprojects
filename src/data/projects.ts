@@ -11,71 +11,38 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "e-commerce-platform",
-    title: "E-Commerce Platform",
+    id: "cafe-marahuyo-pos",
+    title: "Cafe Marahuyo Inventory and POS System",
     description:
-      "A full-featured e-commerce platform with product management, shopping cart, checkout with Stripe integration, and admin dashboard for inventory management.",
+      "A point-of-sale and inventory management system built for Cafe Marahuyo. Features include order tracking, inventory monitoring, sales reports, and receipt generation.",
     category: "Web App",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Stripe", "Tailwind CSS", "Vercel"],
+    techStack: ["HTML", "CSS", "JavaScript", "Python", "SQL"],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/ecommerce",
-    thumbnail: "/placeholder-ecommerce.png",
+    githubUrl: "https://github.com/marq/cafe-marahuyo-pos",
+    thumbnail: "/placeholder-cafe.png",
   },
   {
-    id: "fitness-tracker-app",
-    title: "Fitness Tracker App",
+    id: "spotcheck-parking",
+    title: "SpotCheck - Parking Management System",
     description:
-      "A cross-platform mobile fitness application with workout tracking, progress visualization, social features, and personalized training plans powered by machine learning.",
-    category: "Mobile",
-    techStack: ["React Native", "TypeScript", "Firebase", "Redux", "Expo"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/fitness",
-    thumbnail: "/placeholder-fitness.png",
-  },
-  {
-    id: "ai-content-api",
-    title: "AI Content API",
-    description:
-      "A RESTful API service that leverages OpenAI to generate, summarize, and transform content. Features rate limiting, caching with Redis, and comprehensive Swagger documentation.",
-    category: "API",
-    techStack: ["Node.js", "Express", "OpenAI", "Redis", "Docker", "Swagger"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/ai-content",
-    thumbnail: "/placeholder-api.png",
-  },
-  {
-    id: "cicd-pipeline-orchestrator",
-    title: "CI/CD Pipeline Orchestrator",
-    description:
-      "An infrastructure-as-code solution for orchestrating multi-environment deployments with automated testing, rollback capabilities, and real-time monitoring dashboards.",
-    category: "DevOps",
-    techStack: ["Kubernetes", "Terraform", "GitHub Actions", "Docker", "AWS"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/cicd",
-    thumbnail: "/placeholder-devops.png",
-  },
-  {
-    id: "social-analytics-dashboard",
-    title: "Social Analytics Dashboard",
-    description:
-      "A real-time analytics dashboard for social media metrics with interactive D3.js charts, WebSocket live updates, and exportable reports for marketing teams.",
+      "A parking management system that helps monitor available parking spots, track vehicle entries/exits, and generate usage reports.",
     category: "Web App",
-    techStack: ["React", "D3.js", "Node.js", "MongoDB", "WebSocket", "Tailwind CSS"],
+    techStack: ["HTML", "CSS", "JavaScript", "C#", "SQL"],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/analytics",
-    thumbnail: "/placeholder-analytics.png",
+    githubUrl: "https://github.com/marq/spotcheck",
+    thumbnail: "/placeholder-spotcheck.png",
   },
   {
-    id: "notification-microservice",
-    title: "Notification Microservice",
+    id: "side-quest-tasks",
+    title: "Side Quest - Task Management System",
     description:
-      "A high-performance microservice handling multi-channel notifications (email, SMS, push) with message queuing, delivery tracking, and template management.",
-    category: "API",
-    techStack: ["Go", "gRPC", "RabbitMQ", "PostgreSQL", "Docker"],
+      "A task management application designed for students to organize academic tasks, set deadlines, track progress, and prioritize assignments.",
+    category: "Web App",
+    techStack: ["HTML", "CSS", "JavaScript", "Python", "SQL"],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/notifications",
-    thumbnail: "/placeholder-notification.png",
+    githubUrl: "https://github.com/marq/side-quest",
+    thumbnail: "/placeholder-sidequest.png",
   },
 ];
 
-export const categories = ["All", "Web App", "Mobile", "API", "DevOps"];
+export const categories = ["All", "Web App"];
