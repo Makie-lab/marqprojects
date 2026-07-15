@@ -67,7 +67,7 @@ const contactInfo: ContactInfoItem[] = [
     icon: LinkedInIcon,
     label: "LinkedIn",
     value: "Marco Emmanuel B. Samson",
-    href: "https://linkedin.com/in/marco-emmanuel-b-samson-0185932b2/",
+    href: "https://www.linkedin.com/in/marco-emmanuel-b-samson-0185932b2/",
   },
 ];
 
