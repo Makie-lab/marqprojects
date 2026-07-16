@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "MARQ | Portfolio",
-  description: "UI/UX Developer & Graphic Designer - Building modern web experiences with cutting-edge technology",
+  description: "Front-end Developer & Graphic Designer - Building modern web experiences with cutting-edge technology",
 };
 
 export default function RootLayout({
