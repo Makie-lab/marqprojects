@@ -16,7 +16,7 @@ export default function Home() {
 
         {/* Tagline */}
         <p className="text-lg sm:text-xl opacity-60 mb-10">
-          UI/UX Developer &amp; Graphic Designer
+          Front-end Developer &amp; Graphic Designer
         </p>
 
         {/* CTA Buttons */}
