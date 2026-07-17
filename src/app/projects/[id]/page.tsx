@@ -46,25 +46,37 @@ export default async function ProjectDetailPage({
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap gap-3 mb-10">
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-glass font-medium hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: "var(--foreground)", color: "var(--background)" }}
-          >
-            <ExternalLink size={16} /> Live Demo
-          </a>
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 glass-card font-medium hover:opacity-80 transition-opacity"
-          >
-            <Code2 size={16} /> Source Code
-          </a>
-        </div>
+        {project.liveUrl || project.githubUrl ? (
+          <div className="flex flex-wrap gap-3 mb-10">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-glass font-medium hover:opacity-90 transition-opacity"
+                style={{ backgroundColor: "var(--foreground)", color: "var(--background)" }}
+              >
+                <ExternalLink size={16} /> Live Demo
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 glass-card font-medium hover:opacity-80 transition-opacity"
+              >
+                <Code2 size={16} /> Source Code
+              </a>
+            )}
+          </div>
+        ) : (
+          <div className="glass-card p-4 mb-10 inline-block">
+            <p className="text-sm opacity-70">
+              Visual materials available upon request.
+            </p>
+          </div>
+        )}
 
         {/* Tech Stack Tags */}
         <div className="mb-10">

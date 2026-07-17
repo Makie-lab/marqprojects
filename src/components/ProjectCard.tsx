@@ -50,22 +50,31 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Links */}
       <div className="flex items-center gap-3 pt-2 border-t border-black/5 dark:border-white/10">
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-xs opacity-60 hover:opacity-100 transition-opacity"
-        >
-          <ExternalLink size={14} /> Live
-        </a>
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 text-xs opacity-60 hover:opacity-100 transition-opacity"
-        >
-          <Code2 size={14} /> Code
-        </a>
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-xs opacity-60 hover:opacity-100 transition-opacity"
+          >
+            <ExternalLink size={14} /> Live
+          </a>
+        ) : null}
+        {project.githubUrl ? (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 text-xs opacity-60 hover:opacity-100 transition-opacity"
+          >
+            <Code2 size={14} /> Code
+          </a>
+        ) : null}
+        {!project.liveUrl && !project.githubUrl && (
+          <span className="text-xs opacity-50">
+            Visual materials available upon request
+          </span>
+        )}
       </div>
     </div>
   );

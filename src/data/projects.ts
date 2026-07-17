@@ -4,8 +4,8 @@ export interface Project {
   description: string;
   category: string;
   techStack: string[];
-  liveUrl: string;
-  githubUrl: string;
+  liveUrl?: string;
+  githubUrl?: string;
   thumbnail: string;
 }
 
@@ -43,6 +43,51 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/marq/side-quest",
     thumbnail: "/placeholder-sidequest.png",
   },
+  {
+    id: "cits-facebook-materials",
+    title: "CITS Facebook Page Materials",
+    description:
+      "Publication materials created for the PUP QC Commonwealth Information Technology Society Facebook page. Includes event posters, announcements, and social media graphics.",
+    category: "Visual Assets",
+    techStack: ["Canva"],
+    thumbnail: "/placeholder-cits.png",
+  },
+  {
+    id: "gdg-pup-promotional",
+    title: "GDG on Campus PUP Promotional Materials",
+    description:
+      "Promotional posters and event graphics designed for Google Developer Groups on Campus PUP.",
+    category: "Visual Assets",
+    techStack: ["Canva", "Figma"],
+    thumbnail: "/placeholder-gdg.png",
+  },
+  {
+    id: "vox-nova-publications",
+    title: "Vox Nova Publication Materials",
+    description:
+      "Publication materials for Vox Nova, an independent student organization focused on political works inside the campus.",
+    category: "Visual Assets",
+    techStack: ["Canva"],
+    thumbnail: "/placeholder-voxnova.png",
+  },
+  {
+    id: "siklaw-visual-assets",
+    title: "Siklaw Visual Assets",
+    description:
+      "Visual assets and publication materials created for Siklaw organization.",
+    category: "Visual Assets",
+    techStack: ["Canva", "Figma"],
+    thumbnail: "/placeholder-siklaw.png",
+  },
+  {
+    id: "office-cultural-affairs-graphics",
+    title: "Office of Cultural Affairs Graphics",
+    description:
+      "Visual assets created for the Office of Cultural Affairs events and announcements.",
+    category: "Visual Assets",
+    techStack: ["Canva"],
+    thumbnail: "/placeholder-oca.png",
+  },
 ];
 
-export const categories = ["All", "Web App"];
+export const categories = ["All", "Web App", "Visual Assets"];
