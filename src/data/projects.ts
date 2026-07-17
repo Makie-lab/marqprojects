@@ -39,9 +39,19 @@ export const projects: Project[] = [
       "A task management application designed for students to organize academic tasks, set deadlines, track progress, and prioritize assignments.",
     category: "Web App",
     techStack: ["HTML", "CSS", "JavaScript", "Python", "SQL"],
-    liveUrl: "https://example.com",
+    liveUrl: "https://internhub-tawny-nu.vercel.app/",
     githubUrl: "https://github.com/marq/side-quest",
     thumbnail: "/placeholder-sidequest.png",
+  },
+  {
+    id: "internhub",
+    title: "InternHub",
+    description:
+      "An internship management platform designed for students to discover, track, and manage internship opportunities. Features include internship listings, application tracking, and progress monitoring.",
+    category: "Web App",
+    techStack: ["HTML", "CSS", "JavaScript", "Vercel"],
+    liveUrl: "https://internhub-tawny-nu.vercel.app/",
+    thumbnail: "/placeholder-internhub.png",
   },
   {
     id: "cits-facebook-materials",
