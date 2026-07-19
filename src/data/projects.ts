@@ -44,14 +44,14 @@ export const projects: Project[] = [
     thumbnail: "/placeholder-sidequest.png",
   },
   {
-    id: "internhub",
-    title: "InternHub",
+    id: "grow-tern",
+    title: "Grow Tern",
     description:
       "An internship management platform designed for students to discover, track, and manage internship opportunities. Features include internship listings, application tracking, and progress monitoring.",
     category: "Web App",
     techStack: ["HTML", "CSS", "JavaScript", "Vercel"],
-    liveUrl: "https://internhub-tawny-nu.vercel.app/",
-    thumbnail: "/placeholder-internhub.png",
+    liveUrl: "https://growtern.vercel.app/",
+    thumbnail: "/placeholder-growtern.png",
   },
   {
     id: "cits-facebook-materials",
