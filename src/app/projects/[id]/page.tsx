@@ -40,6 +40,18 @@ export default async function ProjectDetailPage({
           <h1 className="text-3xl sm:text-4xl font-bold">{project.title}</h1>
         </div>
 
+        {/* Website Preview */}
+        {project.liveUrl && project.liveUrl !== "https://example.com" && (
+          <div className="glass-card overflow-hidden rounded-glass-lg mb-8">
+            <img
+              src={`https://image.thum.io/get/width/800/crop/500/${project.liveUrl}`}
+              alt={`${project.title} preview`}
+              loading="lazy"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        )}
+
         {/* Description */}
         <p className="text-lg opacity-70 mb-8 leading-relaxed">
           {project.description}

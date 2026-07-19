@@ -1,21 +1,37 @@
 import Link from "next/link";
-import { Code2, ExternalLink } from "lucide-react";
+import { Code2, ExternalLink, Palette } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 interface ProjectCardProps {
   project: Project;
 }
 
+function hasValidLiveUrl(project: Project): boolean {
+  return !!project.liveUrl && project.liveUrl !== "https://example.com";
+}
+
 export default function ProjectCard({ project }: ProjectCardProps) {
   const maxTags = 4;
   const visibleTags = project.techStack.slice(0, maxTags);
   const overflowCount = project.techStack.length - maxTags;
+  const showPreview = hasValidLiveUrl(project);
 
   return (
     <div className="glass-card-subtle glass-hover p-6 flex flex-col h-full">
-      {/* Thumbnail Placeholder */}
-      <div className="w-full h-40 rounded-glass bg-black/5 dark:bg-white/5 flex items-center justify-center mb-4">
-        <Code2 size={40} className="opacity-30" />
+      {/* Thumbnail */}
+      <div className="w-full h-40 rounded-glass bg-black/5 dark:bg-white/5 flex items-center justify-center mb-4 overflow-hidden">
+        {showPreview ? (
+          <img
+            src={`https://image.thum.io/get/width/600/crop/400/${project.liveUrl}`}
+            alt={project.title}
+            loading="lazy"
+            className="w-full h-full object-cover rounded-glass"
+          />
+        ) : project.category === "Visual Assets" ? (
+          <Palette size={40} className="opacity-30" />
+        ) : (
+          <Code2 size={40} className="opacity-30" />
+        )}
       </div>
 
       {/* Title */}
