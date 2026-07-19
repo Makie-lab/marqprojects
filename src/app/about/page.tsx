@@ -49,7 +49,7 @@ export default function AboutPage() {
           </p>
           <p className="text-lg opacity-70 leading-relaxed">
             Outside of academics, I actively contribute to student organizations as a graphic
-            designer, layout designer, and auditor. I enjoy creating visual assets and publication
+            and layout designer. I enjoy creating visual assets and publication
             materials that communicate ideas effectively.
           </p>
         </div>

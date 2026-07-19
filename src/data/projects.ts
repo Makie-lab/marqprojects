@@ -54,8 +54,8 @@ export const projects: Project[] = [
     thumbnail: "/placeholder-growtern.png",
   },
   {
-    id: "cits-facebook-materials",
-    title: "CITS Facebook Page Materials",
+    id: "commits-facebook-materials",
+    title: "COMMITS Facebook Page Materials",
     description:
       "Publication materials created for the PUP QC Commonwealth Information Technology Society Facebook page. Includes event posters, announcements, and social media graphics.",
     category: "Visual Assets",

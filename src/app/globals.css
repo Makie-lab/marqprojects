@@ -13,9 +13,9 @@
   --background: #FFFFFF;
   --foreground: #000000;
   --glass-bg: rgba(255, 255, 255, 0.75);
-  --glass-bg-nav: rgba(255, 255, 255, 0.85);
+  --glass-bg-nav: rgba(255, 255, 255, 0.9);
   --glass-border: rgba(0, 0, 0, 0.1);
-  --glass-shadow: rgba(0, 0, 0, 0.05);
+  --glass-shadow: rgba(0, 0, 0, 0.5);
 }
 
 .dark {
