@@ -47,7 +47,7 @@ export const projects: Project[] = [
     id: "grow-tern",
     title: "Grow Tern",
     description:
-      "An internship management platform designed for students to discover, track, and manage internship opportunities. Features include internship listings, application tracking, and progress monitoring.",
+      "An internship and job discovery platform that helps students find early-career roles with transparent pay and location-aware details. Covers internships, jobs, webinars, and free certifications to help users skill up while they search.",
     category: "Web App",
     techStack: ["HTML", "CSS", "JavaScript", "Vercel"],
     liveUrl: "https://growtern.vercel.app/",
