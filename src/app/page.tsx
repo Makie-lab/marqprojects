@@ -41,15 +41,16 @@ export default function Home() {
 
         {/* Right Side - Profile Picture Card */}
         <div className="flex flex-col items-center">
-          <div className="glass-card w-[320px] h-[400px] sm:w-[450px] sm:h-[530px] flex items-center justify-center overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
-              <User size={80} className="opacity-30" />
+          <div className="w-[320px] h-[400px] sm:w-[450px] sm:h-[530px] flex flex-col items-center justify-center overflow-hidden rounded-glass-lg border border-white/30 dark:border-white/20 shadow-[0_8px_32px_rgba(255,255,255,0.15)] dark:shadow-[0_8px_32px_rgba(255,255,255,0.08)]" style={{ background: "rgba(255, 255, 255, 0.85)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}>
+            {/* Photo placeholder */}
+            <div className="w-full flex-1 flex items-center justify-center">
+              <User size={80} className="opacity-20 text-gray-400" />
             </div>
-          </div>
-          {/* Name and subtitle below card */}
-          <div className="mt-5 text-center">
-            <p className="text-2xl font-bold">Marco Samson</p>
-            <p className="text-sm opacity-50 italic mt-1">where designer meets code</p>
+            {/* Name and catchphrase inside card */}
+            <div className="w-full px-6 pb-6 text-center">
+              <p className="text-2xl font-bold text-gray-900">Marco Samson</p>
+              <p className="text-sm text-gray-500 italic mt-1">where designer meets code</p>
+            </div>
           </div>
         </div>
       </div>
