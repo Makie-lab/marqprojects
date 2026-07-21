@@ -18,7 +18,7 @@ export const projects: Project[] = [
     category: "Web App",
     techStack: ["HTML", "CSS", "JavaScript", "Python", "SQL"],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/cafe-marahuyo-pos",
+    githubUrl: "",
     thumbnail: "/placeholder-cafe.png",
   },
   {
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     category: "Web App",
     techStack: ["HTML", "CSS", "JavaScript", "C#", "SQL"],
     liveUrl: "https://example.com",
-    githubUrl: "https://github.com/marq/spotcheck",
+    githubUrl: "",
     thumbnail: "/placeholder-spotcheck.png",
   },
   {
