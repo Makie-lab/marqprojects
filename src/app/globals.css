@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-dark-bg: #0A0A0A;
+  --color-dark-bg: #222831;
   --color-light-bg: #FFFFFF;
   --radius-glass: 16px;
   --radius-glass-lg: 24px;
@@ -19,7 +19,7 @@
 }
 
 .dark {
-  --background: #0A0A0A;
+  --background: #222831;
   --foreground: #FFFFFF;
   --glass-bg: rgba(30, 30, 30, 0.7);
   --glass-bg-nav: rgba(20, 20, 20, 0.82);
