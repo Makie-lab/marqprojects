@@ -41,7 +41,7 @@ export default function Home() {
 
         {/* Right Side - Profile Picture Card */}
         <div className="flex flex-col items-center">
-          <div className="glass-card w-[280px] h-[350px] sm:w-[300px] sm:h-[380px] flex items-center justify-center overflow-hidden">
+          <div className="glass-card w-[320px] h-[400px] sm:w-[450px] sm:h-[530px] flex items-center justify-center overflow-hidden">
             <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
               <User size={80} className="opacity-30" />
             </div>
