@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4 relative">
       {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/[0.02] to-transparent dark:from-transparent dark:via-white/[0.02] dark:to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/[0.02] to-transparent pointer-events-none" />
 
       <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 animate-fade-in relative z-10">
         {/* Left Side - Text / Branding */}
@@ -41,7 +41,7 @@ export default function Home() {
 
         {/* Right Side - Profile Picture Card */}
         <div className="flex flex-col items-center">
-          <div className="w-[320px] h-[400px] sm:w-[450px] sm:h-[530px] flex flex-col items-center justify-center overflow-hidden rounded-glass-lg border border-white/30 dark:border-white/20 shadow-[0_8px_32px_rgba(255,255,255,0.15)] dark:shadow-[0_8px_32px_rgba(255,255,255,0.08)]" style={{ background: "rgba(255, 255, 255, 0.85)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}>
+          <div className="w-[320px] h-[400px] sm:w-[450px] sm:h-[530px] flex flex-col items-center justify-center overflow-hidden rounded-glass-lg border border-black/10 shadow-[0_8px_32px_rgba(0,0,0,0.08)]" style={{ background: "rgba(255, 255, 255, 0.85)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }}>
             {/* Photo placeholder */}
             <div className="w-full flex-1 flex items-center justify-center">
               <User size={80} className="opacity-20 text-gray-400" />

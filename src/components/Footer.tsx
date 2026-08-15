@@ -9,21 +9,21 @@ export default function Footer() {
           <div className="flex items-center justify-center space-x-4">
             <a
               href="#"
-              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full hover:bg-black/5 transition-colors"
               aria-label="Website"
             >
               <Globe size={18} />
             </a>
             <a
               href="#"
-              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full hover:bg-black/5 transition-colors"
               aria-label="Code"
             >
               <Code2 size={18} />
             </a>
             <a
               href="#"
-              className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full hover:bg-black/5 transition-colors"
               aria-label="Email"
             >
               <Mail size={18} />

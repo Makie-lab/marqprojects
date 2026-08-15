@@ -50,7 +50,7 @@ export default function TechStackFlow() {
   }, []);
 
   return (
-    <div className="w-full h-[600px] sm:h-[700px] lg:h-[900px] rounded-glass-lg overflow-hidden border border-black/10 dark:border-white/10">
+    <div className="w-full h-[600px] sm:h-[700px] lg:h-[900px] rounded-glass-lg overflow-hidden border border-black/10">
       <ReactFlow
         nodes={nodes}
         edges={edges}

@@ -34,7 +34,7 @@ export default async function ProjectDetailPage({
       <div className="animate-fade-in">
         {/* Title & Category */}
         <div className="mb-6">
-          <span className="inline-block text-xs px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 mb-3">
+          <span className="inline-block text-xs px-3 py-1 rounded-full bg-black/5 mb-3">
             {project.category}
           </span>
           <h1 className="text-3xl sm:text-4xl font-bold">{project.title}</h1>
@@ -97,7 +97,7 @@ export default async function ProjectDetailPage({
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="text-sm px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/10"
+                className="text-sm px-3 py-1.5 rounded-full bg-black/5"
               >
                 {tech}
               </span>

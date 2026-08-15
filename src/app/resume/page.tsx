@@ -89,7 +89,7 @@ export default function ResumePage() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-xs px-2.5 py-1 rounded-full bg-black/5 dark:bg-white/10"
+                    className="text-xs px-2.5 py-1 rounded-full bg-black/5"
                   >
                     {skill}
                   </span>

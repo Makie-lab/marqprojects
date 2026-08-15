@@ -120,7 +120,7 @@ export default function ContactForm() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-glass bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
+            className="w-full px-4 py-2.5 rounded-glass bg-black/5 border border-black/10 focus:outline-none focus:border-black/30 transition-colors"
             placeholder="Your name"
           />
           {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -137,7 +137,7 @@ export default function ContactForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-glass bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
+            className="w-full px-4 py-2.5 rounded-glass bg-black/5 border border-black/10 focus:outline-none focus:border-black/30 transition-colors"
             placeholder="you@example.com"
           />
           {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -154,7 +154,7 @@ export default function ContactForm() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 rounded-glass bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors"
+            className="w-full px-4 py-2.5 rounded-glass bg-black/5 border border-black/10 focus:outline-none focus:border-black/30 transition-colors"
             placeholder="What is this about?"
           />
           {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
@@ -171,7 +171,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             rows={5}
-            className="w-full px-4 py-2.5 rounded-glass bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors resize-none"
+            className="w-full px-4 py-2.5 rounded-glass bg-black/5 border border-black/10 focus:outline-none focus:border-black/30 transition-colors resize-none"
             placeholder="Your message..."
           />
           {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}

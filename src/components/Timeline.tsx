@@ -13,7 +13,7 @@ export default function Timeline({ items }: TimelineProps) {
   return (
     <div className="relative">
       {/* Vertical Line */}
-      <div className="absolute left-4 top-0 bottom-0 w-px bg-black/10 dark:bg-white/10" />
+      <div className="absolute left-4 top-0 bottom-0 w-px bg-black/10" />
 
       <div className="space-y-8">
         {items.map((item, index) => (

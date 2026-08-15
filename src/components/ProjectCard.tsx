@@ -19,7 +19,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="glass-card-subtle glass-hover p-6 flex flex-col h-full">
       {/* Thumbnail */}
-      <div className="w-full h-40 rounded-glass bg-black/5 dark:bg-white/5 flex items-center justify-center mb-4 overflow-hidden">
+      <div className="w-full h-40 rounded-glass bg-black/5 flex items-center justify-center mb-4 overflow-hidden">
         {showPreview ? (
           <img
             src={`https://image.thum.io/get/width/600/crop/400/${project.liveUrl}`}
@@ -52,20 +52,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {visibleTags.map((tech) => (
           <span
             key={tech}
-            className="text-xs px-2 py-1 rounded-full bg-black/5 dark:bg-white/10 opacity-70"
+            className="text-xs px-2 py-1 rounded-full bg-black/5 opacity-70"
           >
             {tech}
           </span>
         ))}
         {overflowCount > 0 && (
-          <span className="text-xs px-2 py-1 rounded-full bg-black/5 dark:bg-white/10 opacity-50">
+          <span className="text-xs px-2 py-1 rounded-full bg-black/5 opacity-50">
             +{overflowCount}
           </span>
         )}
       </div>
 
       {/* Links */}
-      <div className="flex items-center gap-3 pt-2 border-t border-black/5 dark:border-white/10">
+      <div className="flex items-center gap-3 pt-2 border-t border-black/5">
         {project.liveUrl ? (
           <a
             href={project.liveUrl}

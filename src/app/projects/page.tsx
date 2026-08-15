@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { projects, categories } from "@/data/projects";
-import ProjectCard from "@/components/ProjectCard";
+import LiquidProjectsGrid from "@/components/LiquidProjectsGrid";
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -44,12 +44,8 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
-      </div>
+      {/* Projects Grid with Liquid Gooey Effects */}
+      <LiquidProjectsGrid projects={filteredProjects} />
     </div>
   );
 }

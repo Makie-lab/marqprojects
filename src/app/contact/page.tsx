@@ -93,7 +93,7 @@ export default function ContactPage() {
                   key={info.label}
                   className="glass-card p-4 flex items-center gap-3 glass-hover"
                 >
-                  <div className="p-2.5 rounded-full bg-black/5 dark:bg-white/10 shrink-0">
+                  <div className="p-2.5 rounded-full bg-black/5 shrink-0">
                     <Icon size={20} />
                   </div>
                   <div className="text-left min-w-0">
