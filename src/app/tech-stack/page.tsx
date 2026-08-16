@@ -12,7 +12,7 @@ const legend = [
 
 export default function TechStackPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-32 sm:pb-16">
       {/* Header */}
       <div className="mb-8 animate-fade-in">
         <h1 className="text-4xl sm:text-5xl font-bold mb-3">Tech Stack</h1>

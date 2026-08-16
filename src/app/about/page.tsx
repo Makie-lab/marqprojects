@@ -28,7 +28,7 @@ const skills = [
 
 export default function AboutPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-32 sm:pb-16">
       {/* Bio Section */}
       <div className="flex flex-col md:flex-row items-start gap-8 mb-16 animate-fade-in">
         {/* Avatar Placeholder */}

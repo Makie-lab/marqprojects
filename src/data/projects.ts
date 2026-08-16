@@ -7,6 +7,22 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   thumbnail: string;
+  /**
+   * Canva design/profile link for Visual Assets projects.
+   * When present, the asset-request dialog offers "View on Canva" as a
+   * first-class channel alongside the Gmail hand-off.
+   */
+  canvaUrl?: string;
+  /** Marks work that is requested rather than downloaded. */
+  requestOnly?: boolean;
+}
+
+/** Categories whose deliverables are commissioned, not downloadable. */
+export const REQUEST_ONLY_CATEGORY = "Visual Assets";
+
+/** True when a project must be obtained through the Gmail/Canva request flow. */
+export function isRequestOnly(project: Project): boolean {
+  return project.requestOnly === true || project.category === REQUEST_ONLY_CATEGORY;
 }
 
 export const projects: Project[] = [
@@ -59,6 +75,8 @@ export const projects: Project[] = [
       "Publication materials created for the PUP QC Commonwealth Information Technology Society Facebook page. Includes event posters, announcements, and social media graphics.",
     category: "Visual Assets",
     techStack: ["Canva"],
+    canvaUrl: "https://www.canva.com/",
+    requestOnly: true,
     thumbnail: "/placeholder-cits.png",
   },
   {
@@ -68,6 +86,8 @@ export const projects: Project[] = [
       "Promotional posters and event graphics designed for Google Developer Groups on Campus PUP. Covers organizational events and announcements.",
     category: "Visual Assets",
     techStack: ["Canva", "Figma"],
+    canvaUrl: "https://www.canva.com/",
+    requestOnly: true,
     thumbnail: "/placeholder-gdg.png",
   },
   {
@@ -77,6 +97,8 @@ export const projects: Project[] = [
       "Publication materials for Vox Nova, an independent student organization focused on political works inside the campus.",
     category: "Visual Assets",
     techStack: ["Canva"],
+    canvaUrl: "https://www.canva.com/",
+    requestOnly: true,
     thumbnail: "/placeholder-voxnova.png",
   },
   {
@@ -86,6 +108,8 @@ export const projects: Project[] = [
       "Visual assets and publication materials created for Siklaw, an E-Sports organization. Designed layouts and graphics for events and announcements.",
     category: "Visual Assets",
     techStack: ["Canva", "Figma"],
+    canvaUrl: "https://www.canva.com/",
+    requestOnly: true,
     thumbnail: "/placeholder-siklaw.png",
   },
   {
@@ -95,6 +119,8 @@ export const projects: Project[] = [
       "Visual assets created for SINAGTALA as part of the Creatives Committee. Designed publication materials for organizational campaigns.",
     category: "Visual Assets",
     techStack: ["Canva"],
+    canvaUrl: "https://www.canva.com/",
+    requestOnly: true,
     thumbnail: "/placeholder-sinagtala.png",
   },
   {
@@ -104,6 +130,8 @@ export const projects: Project[] = [
       "Visual assets created for the Office of Cultural Affairs events and announcements.",
     category: "Visual Assets",
     techStack: ["Canva"],
+    canvaUrl: "https://www.canva.com/",
+    requestOnly: true,
     thumbnail: "/placeholder-oca.png",
   },
 ];

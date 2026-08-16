@@ -1,0 +1,90 @@
+import { User } from "lucide-react";
+
+export default function HeroSection() {
+  return (
+    <section
+      id="home"
+      aria-label="Introduction"
+      className="section-scroll min-h-[calc(100vh-2rem)] flex items-center justify-center px-4 pt-24 pb-16 sm:pt-28"
+    >
+      <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 animate-fade-in">
+        {/* Left Side - Text / Branding */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          {/* Large stacked branding */}
+          <h1 className="font-black text-7xl sm:text-8xl lg:text-9xl leading-none tracking-tighter mb-6">
+            <span className="block">MA</span>
+            <span className="block">RQ</span>
+          </h1>
+
+          {/* Tagline */}
+          <p className="text-lg sm:text-xl opacity-60 mb-10">
+            Front-end Developer &amp; Graphic Designer
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <a
+              href="#projects"
+              className="glass-card px-8 py-3 font-medium hover:opacity-80 transition-opacity"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="px-8 py-3 font-medium rounded-glass transition-opacity hover:opacity-90"
+              style={{
+                backgroundColor: "var(--foreground)",
+                color: "var(--background)",
+              }}
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        {/* Right Side - Profile Picture Card */}
+        <div className="flex flex-col items-center">
+          <div
+            className="w-[320px] h-[400px] sm:w-[450px] sm:h-[530px] flex flex-col items-center justify-center overflow-hidden rounded-glass-lg border border-black/10 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+            style={{
+              background: "rgba(255, 255, 255, 0.85)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+            }}
+          >
+            {/* Photo placeholder */}
+            <div className="w-full flex-1 flex items-center justify-center">
+              <User size={80} className="opacity-20 text-gray-400" />
+            </div>
+            {/* Name and catchphrase inside card */}
+            <div className="w-full px-6 pb-6 text-center">
+              <p className="text-2xl font-bold text-gray-900">Marco Samson</p>
+
+              {/* Mixed-font catchphrase — sans + editorial serif italic for emphasis */}
+              <p className="mt-2 leading-[1.15] text-lg sm:text-xl tracking-tight">
+                <span className="text-gray-400 font-light lowercase tracking-wide">
+                  where
+                </span>{" "}
+                <span className="font-semibold text-gray-900">designer</span>
+                <br />
+                <span
+                  className="font-serif italic text-gray-500"
+                  style={{ fontFamily: "'Instrument Serif', ui-serif, Georgia, serif" }}
+                >
+                  meets
+                </span>{" "}
+                <span
+                  className="font-serif italic font-bold text-gray-900 text-2xl sm:text-3xl align-baseline"
+                  style={{ fontFamily: "'Instrument Serif', ui-serif, Georgia, serif" }}
+                >
+                  code
+                </span>
+                <span className="text-gray-900 font-bold">.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

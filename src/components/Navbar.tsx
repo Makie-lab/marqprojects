@@ -2,77 +2,112 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import {
+  Home,
+  LayoutGrid,
+  User,
+  FileText,
+  Cpu,
+  Mail,
+} from "lucide-react";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/projects", label: "Projects" },
-  { href: "/about", label: "About" },
-  { href: "/resume", label: "Resume" },
-  { href: "/tech-stack", label: "Tech Stack" },
-  { href: "/contact", label: "Contact" },
+type NavItem = {
+  id: string;
+  label: string;
+  Icon: typeof Home;
+};
+
+const navItems: NavItem[] = [
+  { id: "home", label: "Home", Icon: Home },
+  { id: "projects", label: "Projects", Icon: LayoutGrid },
+  { id: "about", label: "About", Icon: User },
+  { id: "resume", label: "Resume", Icon: FileText },
+  { id: "tech-stack", label: "Tech Stack", Icon: Cpu },
+  { id: "contact", label: "Contact", Icon: Mail },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isHome = pathname === "/";
+  const [activeId, setActiveId] = useState<string>("home");
+
+  // IntersectionObserver: highlight the section currently in view (only on home).
+  useEffect(() => {
+    if (!isHome) return;
+
+    const targets = navItems
+      .map((n) => document.getElementById(n.id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (targets.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry closest to the top that is intersecting
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visible[0]) {
+          setActiveId(visible[0].target.id);
+        }
+      },
+      {
+        // Trigger when a section crosses roughly a third down from the nav
+        rootMargin: "-30% 0px -60% 0px",
+        threshold: 0,
+      }
+    );
+
+    targets.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [isHome]);
+
+  // Smooth-scroll handler for same-page anchor navigation on home.
+  const handleClick = useCallback(
+    (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (!isHome) return; // Let the browser navigate to `/#id` from other pages.
+      e.preventDefault();
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        setActiveId(id);
+        // Update URL hash without triggering another scroll
+        history.replaceState(null, "", `#${id}`);
+      }
+    },
+    [isHome]
+  );
 
   return (
-    <nav className="glass-nav fixed top-0 left-0 right-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex flex-col leading-none font-black text-sm">
-            <span>MA</span>
-            <span>RQ</span>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
+    <nav
+      aria-label="Primary"
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
+    >
+      <ul className="nav-pill flex items-center gap-1 px-2 py-2">
+        {navItems.map(({ id, label, Icon }) => {
+          const href = `/#${id}`;
+          const active = isHome && activeId === id;
+          return (
+            <li key={id}>
               <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-opacity hover:opacity-100 ${
-                  pathname === link.href ? "opacity-100" : "opacity-60"
+                href={href}
+                aria-label={label}
+                aria-current={active ? "page" : undefined}
+                title={label}
+                onClick={handleClick(id)}
+                className={`nav-icon-btn group relative ${
+                  active ? "nav-icon-btn--active" : ""
                 }`}
               >
-                {link.label}
+                <Icon size={18} strokeWidth={2} />
+                <span className="nav-tooltip">{label}</span>
               </Link>
-            ))}
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-full hover:bg-black/5 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden glass-card mx-4 mb-4 p-4">
-          <div className="flex flex-col space-y-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-sm font-medium transition-opacity hover:opacity-100 ${
-                  pathname === link.href ? "opacity-100" : "opacity-60"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 }

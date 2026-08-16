@@ -1,10 +1,10 @@
 import GlassCard from "@/components/GlassCard";
 import { education, organizations, classroomOfficer, projects, skillGroups } from "@/data/resume";
-import { Download, Briefcase, GraduationCap, FolderOpen } from "lucide-react";
+import { Download, Briefcase, FolderOpen } from "lucide-react";
 
 export default function ResumePage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-32 sm:pb-16">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 animate-fade-in">
         <div>

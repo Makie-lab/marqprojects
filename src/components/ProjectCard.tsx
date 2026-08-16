@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import { Code2, ExternalLink, Palette } from "lucide-react";
-import type { Project } from "@/data/projects";
+import { useState } from "react";
+import { Code2, ExternalLink, Palette, Mail } from "lucide-react";
+import { isRequestOnly, type Project } from "@/data/projects";
+import AssetRequestDialog from "@/components/AssetRequestDialog";
 
 interface ProjectCardProps {
   project: Project;
@@ -11,87 +15,132 @@ function hasValidLiveUrl(project: Project): boolean {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const maxTags = 4;
-  const visibleTags = project.techStack.slice(0, maxTags);
-  const overflowCount = project.techStack.length - maxTags;
+  const [requestOpen, setRequestOpen] = useState(false);
   const showPreview = hasValidLiveUrl(project);
+  const requestOnly = isRequestOnly(project);
+  const primaryTag = project.techStack[0];
 
   return (
-    <div className="glass-card-subtle glass-hover p-6 flex flex-col h-full">
-      {/* Thumbnail */}
-      <div className="w-full h-40 rounded-glass bg-black/5 flex items-center justify-center mb-4 overflow-hidden">
-        {showPreview ? (
-          <img
-            src={`https://image.thum.io/get/width/600/crop/400/${project.liveUrl}`}
-            alt={project.title}
-            loading="lazy"
-            className="w-full h-full object-cover rounded-glass"
-          />
-        ) : project.category === "Visual Assets" ? (
-          <Palette size={40} className="opacity-30" />
-        ) : (
-          <Code2 size={40} className="opacity-30" />
-        )}
-      </div>
+    <>
+      <article className="media-card group">
+        <Link
+          href={`/projects/${project.id}`}
+          className="block"
+          aria-label={`View ${project.title}`}
+        >
+          {/* Media */}
+          <div className="media-card__media aspect-[4/3]">
+            {showPreview ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={`https://image.thum.io/get/width/800/crop/600/${project.liveUrl}`}
+                alt={project.title}
+                loading="lazy"
+                className="media-card__img"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                {project.category === "Visual Assets" ? (
+                  <Palette size={44} className="opacity-25" />
+                ) : (
+                  <Code2 size={44} className="opacity-25" />
+                )}
+              </div>
+            )}
 
-      {/* Title */}
-      <Link
-        href={`/projects/${project.id}`}
-        className="text-lg font-semibold hover:opacity-80 transition-opacity mb-2"
-      >
-        {project.title}
-      </Link>
+            {/* Category badge */}
+            <span
+              className="absolute top-3 left-3 chip chip--sm"
+              style={{ backdropFilter: "blur(6px)" }}
+            >
+              {project.category}
+            </span>
 
-      {/* Description */}
-      <p className="text-sm opacity-60 line-clamp-3 mb-4 flex-1">
-        {project.description}
-      </p>
+            {/* Request-only badge */}
+            {requestOnly ? (
+              <span className="absolute top-3 right-3 chip chip--sm chip--active">
+                On request
+              </span>
+            ) : null}
 
-      {/* Tech Tags */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {visibleTags.map((tech) => (
-          <span
-            key={tech}
-            className="text-xs px-2 py-1 rounded-full bg-black/5 opacity-70"
-          >
-            {tech}
-          </span>
-        ))}
-        {overflowCount > 0 && (
-          <span className="text-xs px-2 py-1 rounded-full bg-black/5 opacity-50">
-            +{overflowCount}
-          </span>
-        )}
-      </div>
+            {/* Hover overlay */}
+            <div className="media-card__overlay">
+              <div className="media-card__title line-clamp-2">{project.title}</div>
+              <div className="media-card__meta line-clamp-2">
+                {project.techStack.slice(0, 4).join(" · ")}
+              </div>
+              <div className="media-card__actions">
+                <span className="media-card__action">
+                  {requestOnly ? "Request assets" : "View project"}
+                </span>
+              </div>
+            </div>
+          </div>
+        </Link>
 
-      {/* Links */}
-      <div className="flex items-center gap-3 pt-2 border-t border-black/5">
-        {project.liveUrl ? (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-xs opacity-60 hover:opacity-100 transition-opacity"
-          >
-            <ExternalLink size={14} /> Live
-          </a>
-        ) : null}
-        {project.githubUrl ? (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-xs opacity-60 hover:opacity-100 transition-opacity"
-          >
-            <Code2 size={14} /> Code
-          </a>
-        ) : null}
-        {!project.liveUrl && !project.githubUrl && (
-          <span className="text-xs opacity-50">
-            Visual materials available upon request
-          </span>
-        )}
-      </div>
-    </div>
+        {/* Footer */}
+        <div className="flex items-center justify-between gap-3 px-3 py-3">
+          <div className="min-w-0">
+            <Link
+              href={`/projects/${project.id}`}
+              className="text-sm font-semibold truncate block hover:opacity-70 transition-opacity"
+            >
+              {project.title}
+            </Link>
+            {primaryTag ? (
+              <p className="text-xs opacity-55 truncate mt-0.5">{primaryTag}</p>
+            ) : null}
+          </div>
+
+          <div className="flex items-center gap-1 shrink-0">
+            {requestOnly ? (
+              <button
+                onClick={() => setRequestOpen(true)}
+                className="chip chip--sm"
+                aria-label={`Request assets for ${project.title}`}
+                title="Request via Gmail or Canva"
+              >
+                <Mail size={13} /> Request
+              </button>
+            ) : (
+              <>
+                {project.liveUrl ? (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open live site for ${project.title}`}
+                    title="Live"
+                    className="p-1.5 rounded-full hover:bg-black/5 transition-colors"
+                  >
+                    <ExternalLink size={15} className="opacity-70" />
+                  </a>
+                ) : null}
+                {project.githubUrl ? (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open source code for ${project.title}`}
+                    title="Code"
+                    className="p-1.5 rounded-full hover:bg-black/5 transition-colors"
+                  >
+                    <Code2 size={15} className="opacity-70" />
+                  </a>
+                ) : null}
+              </>
+            )}
+          </div>
+        </div>
+      </article>
+
+      {requestOnly ? (
+        <AssetRequestDialog
+          project={project}
+          open={requestOpen}
+          onClose={() => setRequestOpen(false)}
+        />
+      ) : null}
+    </>
   );
 }

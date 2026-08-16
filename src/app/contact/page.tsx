@@ -75,7 +75,7 @@ export default function ContactPage() {
   return (
     <div>
       {/* Hero / Contact Info Section */}
-      <section className="min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-16 relative">
+      <section className="min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-28 pb-16 sm:pt-32 relative">
         <div className="max-w-3xl mx-auto text-center animate-fade-in">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-3">
             Marco Emmanuel B. Samson
