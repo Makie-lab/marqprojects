@@ -59,13 +59,13 @@ export const projects: Project[] = [
   },
   {
     id: "grow-tern",
-    title: "Grow Tern",
+    title: "GrowTern",
     description:
-      "An internship and job discovery platform that helps students find early-career roles with transparent pay and location-aware details. Covers internships, jobs, webinars, and free certifications to help users skill up while they search.",
+      "A free career resource platform for Asia-based students and professionals. Browse certifications, internships, hackathons, webinars, and more from Google, Amazon, Microsoft, and Figma. Features role comparison, interactive career path graph, and personalized content based on user type (Student/Graduate/Employee).",
     category: "Web App",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "React Flow"],
     liveUrl: "https://growtern.vercel.app/",
-    githubUrl: "https://github.com/Makie-lab",
+    githubUrl: "https://github.com/Makie-lab/growtern",
     thumbnail: "/placeholder-growtern.png",
   },
   {
