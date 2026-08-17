@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {showPreview ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={`https://image.thum.io/get/width/800/crop/600/${project.liveUrl}`}
+                src={`https://image.thum.io/get/width/800/crop/600/nonce/v2/${project.liveUrl}`}
                 alt={project.title}
                 loading="lazy"
                 className="media-card__img"
