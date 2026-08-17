@@ -44,7 +44,7 @@ const socialLinks: SocialLink[] = [
     Icon: GithubIcon,
   },
   {
-    href: "https://www.linkedin.com/in/marco-emmanuel-b-samson-0185932b2/",
+    href: "https://www.linkedin.com/in/marco-samson-0185932b2/",
     label: "LinkedIn",
     Icon: LinkedinIcon,
   },

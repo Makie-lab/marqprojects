@@ -38,7 +38,7 @@ export const siteConfig = {
   social: {
     github: "https://github.com/Makie-lab",
     linkedin:
-      "https://www.linkedin.com/in/marco-emmanuel-b-samson-0185932b2/",
+      "https://www.linkedin.com/in/marco-samson-0185932b2/",
   },
 
   /**
