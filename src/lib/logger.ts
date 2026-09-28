@@ -95,11 +95,17 @@ export const logger = {
   },
 };
 
-/** Generates a correlation id, preferring an upstream-provided one. */
+/** Accepts only short, log-safe upstream correlation identifiers. */
+function safeRequestId(value: string | null): string | null {
+  if (!value) return null;
+  return /^[A-Za-z0-9._:-]{1,128}$/.test(value) ? value : null;
+}
+
+/** Generates a correlation id, preferring a validated upstream-provided one. */
 export function requestId(request: Request): string {
   return (
-    request.headers.get("x-request-id") ??
-    request.headers.get("x-vercel-id") ??
+    safeRequestId(request.headers.get("x-request-id")) ??
+    safeRequestId(request.headers.get("x-vercel-id")) ??
     (globalThis.crypto?.randomUUID?.() ?? `req_${Date.now().toString(36)}`)
   );
 }

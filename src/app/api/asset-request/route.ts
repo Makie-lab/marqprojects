@@ -9,7 +9,7 @@ import {
 import { sendEmail } from "@/lib/email";
 import { clientKey, rateLimit, rateLimitHeaders } from "@/lib/rateLimit";
 import { logger, requestId } from "@/lib/logger";
-import { projects } from "@/data/projects";
+import { isRequestOnly, projects } from "@/data/projects";
 import { siteConfig } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -82,13 +82,24 @@ export async function POST(request: Request) {
     );
   }
 
-  // 4. Resolve the project so we can attach its Canva link (server-authoritative).
+  // 4. Resolve the project and derive all project metadata server-side.
   const project = projects.find((p) => p.id === input.projectId);
-  const ctx = toContext(input);
-  const channels = resolveAssetChannels(ctx, project?.canvaUrl);
+  if (!project || !isRequestOnly(project)) {
+    log.warn("invalid_project", { projectId: input.projectId });
+    return apiError("BAD_REQUEST", "This project is not available for asset requests.", {
+      requestId: rid,
+      status: 400,
+      fields: { projectId: "Select a requestable project from the catalogue." },
+      headers: limitHeaders,
+    });
+  }
+
+  const authoritativeInput = { ...input, projectTitle: project.title };
+  const ctx = toContext(authoritativeInput);
+  const channels = resolveAssetChannels(ctx, project.canvaUrl);
 
   // 5. Notify the owner, then acknowledge the requester.
-  const ownerSubject = `[Asset request · ${input.channel}] ${input.projectTitle}`;
+  const ownerSubject = `[Asset request · ${input.channel}] ${project.title}`;
   const ownerText = [
     assetRequestBody(ctx),
     "",
@@ -107,11 +118,11 @@ export async function POST(request: Request) {
   if (ownerResult.status === "sent") {
     await sendEmail({
       to: input.email,
-      subject: `We received your asset request — ${input.projectTitle}`,
+      subject: `We received your asset request — ${project.title}`,
       text: [
         `Hi ${input.name},`,
         "",
-        `Thanks for requesting the visual assets for "${input.projectTitle}".`,
+        `Thanks for requesting the visual assets for "${project.title}".`,
         `I'll reply within ${siteConfig.assetRequest.responseTime}.`,
         "",
         input.channel === "canva"

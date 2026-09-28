@@ -64,14 +64,14 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-black/10">
+    <footer className="mt-20 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           {/* Brand */}
           <Link href="/" className="inline-flex items-center gap-3">
             <span
-              className="w-9 h-9 rounded-xl grid place-items-center font-black text-[11px] leading-none text-white"
-              style={{ backgroundColor: "var(--foreground)" }}
+              className="w-9 h-9 rounded-xl grid place-items-center font-black text-[11px] leading-none text-slate-950"
+              style={{ background: "linear-gradient(135deg, var(--accent), #a9b7ff)" }}
             >
               MA<br />RQ
             </span>
@@ -106,7 +106,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 title={label}
-                className="p-2 rounded-full hover:bg-black/5 transition-colors"
+                className="p-2 rounded-full hover:bg-white/[0.08] transition-colors"
               >
                 <Icon size={18} />
               </a>

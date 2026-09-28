@@ -93,7 +93,9 @@ export async function readJson(
   }
 
   const text = await request.text();
-  if (text.length > MAX_BODY_BYTES) {
+  // Count UTF-8 bytes rather than UTF-16 code units so multibyte payloads
+  // cannot bypass the same limit enforced by Content-Length.
+  if (new TextEncoder().encode(text).byteLength > MAX_BODY_BYTES) {
     return { ok: false, reason: "too_large" };
   }
 

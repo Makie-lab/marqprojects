@@ -1,4 +1,4 @@
-import { apiSuccess } from "@/lib/api";
+import { apiError, apiSuccess } from "@/lib/api";
 import { requestId } from "@/lib/logger";
 import { projects, categories, isRequestOnly } from "@/data/projects";
 import { buildCanvaUrl } from "@/lib/assetRequest";
@@ -17,8 +17,26 @@ export const revalidate = 3600;
 export async function GET(request: Request) {
   const rid = requestId(request);
   const url = new URL(request.url);
-  const category = url.searchParams.get("category");
-  const q = url.searchParams.get("q")?.toLowerCase().trim();
+  const category = url.searchParams.get("category")?.trim() || null;
+  const rawQuery = url.searchParams.get("q")?.trim() || null;
+
+  if (category && category !== "All" && !categories.includes(category)) {
+    return apiError("VALIDATION_ERROR", "Unknown project category.", {
+      requestId: rid,
+      status: 422,
+      fields: { category: "Choose a category from the catalogue." },
+    });
+  }
+
+  if (rawQuery && rawQuery.length > 100) {
+    return apiError("VALIDATION_ERROR", "Search query is too long.", {
+      requestId: rid,
+      status: 422,
+      fields: { q: "Search must be 100 characters or fewer." },
+    });
+  }
+
+  const q = rawQuery?.toLowerCase();
 
   let items = projects;
 
