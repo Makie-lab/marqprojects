@@ -17,7 +17,7 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://marqprojects.vercel.app",
   locale: "en_PH",
-  themeColor: "#000000",
+  themeColor: "#050816",
 
   author: {
     name: "Marco Emmanuel B. Samson",

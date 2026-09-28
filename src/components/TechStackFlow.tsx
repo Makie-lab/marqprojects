@@ -50,7 +50,7 @@ export default function TechStackFlow() {
   }, []);
 
   return (
-    <div className="w-full h-[600px] sm:h-[700px] lg:h-[900px] rounded-glass-lg overflow-hidden border border-black/10">
+    <div className="w-full h-[600px] sm:h-[700px] lg:h-[900px] rounded-glass-lg overflow-hidden border border-white/10 bg-[#070b19]/60">
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -61,7 +61,7 @@ export default function TechStackFlow() {
         fitView
         attributionPosition="bottom-left"
       >
-        <Controls className="!bg-white/10 !border-white/10 !rounded-glass" />
+        <Controls className="!bg-[#101831]/90 !border-white/10 !rounded-glass" />
         <Background variant={BackgroundVariant.Dots} gap={20} size={1} className="!bg-transparent" />
       </ReactFlow>
     </div>

@@ -229,7 +229,7 @@ function AssetRequestDialogPanel({
           </div>
           <button
             onClick={onClose}
-            className="p-2 -mr-1 rounded-full hover:bg-black/5 transition-colors shrink-0"
+            className="p-2 -mr-1 rounded-full hover:bg-white/[0.08] transition-colors shrink-0"
             aria-label="Close dialog"
           >
             <X size={18} />
@@ -240,7 +240,7 @@ function AssetRequestDialogPanel({
           {status === "success" ? (
             /* ---------- SUCCESS ---------- */
             <div className="text-center py-4">
-              <CheckCircle2 size={44} className="mx-auto mb-4 text-green-600" />
+              <CheckCircle2 size={44} className="mx-auto mb-4 text-green-300" />
               <h3 className="text-lg font-bold mb-2">Request sent</h3>
               <p className="text-sm opacity-65 mb-6 max-w-sm mx-auto">
                 {channel === "canva"
@@ -312,7 +312,7 @@ function AssetRequestDialogPanel({
               {serverMessage ? (
                 <div
                   role="alert"
-                  className="flex items-start gap-2 p-3 mb-4 rounded-glass bg-red-500/10 border border-red-500/20 text-red-700"
+                  className="flex items-start gap-2 p-3 mb-4 rounded-glass bg-red-500/10 border border-red-400/25 text-red-300"
                 >
                   <AlertCircle size={16} className="mt-0.5 shrink-0" />
                   <span className="text-sm">{serverMessage}</span>
@@ -361,7 +361,7 @@ function AssetRequestDialogPanel({
                     onChange={(e) =>
                       update("useCase", e.target.value)
                     }
-                    className="w-full px-4 py-2.5 rounded-glass bg-black/5 border border-black/10 focus:outline-none focus:border-black/40 transition-colors"
+                    className="w-full px-4 py-2.5 rounded-glass bg-white/[0.04] border border-white/10 focus:outline-none focus:border-cyan-200/50 transition-colors"
                   >
                     {ASSET_USE_CASES.map((u) => (
                       <option key={u} value={u}>
@@ -384,7 +384,7 @@ function AssetRequestDialogPanel({
                     value={form.details}
                     onChange={(e) => update("details", e.target.value)}
                     placeholder="Formats needed, deadline, sizes…"
-                    className="w-full px-4 py-2.5 rounded-glass bg-black/5 border border-black/10 focus:outline-none focus:border-black/40 transition-colors resize-none"
+                    className="w-full px-4 py-2.5 rounded-glass bg-white/[0.04] border border-white/10 focus:outline-none focus:border-cyan-200/50 transition-colors resize-none"
                   />
                 </div>
 
@@ -474,13 +474,13 @@ function ChannelOption({
       aria-pressed={active}
       className={`flex flex-col items-start gap-1 p-3 rounded-xl border text-left transition-all ${
         active
-          ? "border-black bg-black text-white"
-          : "border-black/12 bg-white hover:bg-black/[0.03]"
+          ? "border-cyan-200/60 bg-cyan-200/10 text-cyan-50"
+          : "border-white/10 bg-white/[0.04] hover:bg-white/[0.08]"
       }`}
     >
-      <span className={active ? "text-white" : "opacity-70"}>{icon}</span>
+      <span className={active ? "text-cyan-200" : "opacity-70"}>{icon}</span>
       <span className="text-sm font-semibold leading-none">{label}</span>
-      <span className={`text-[11px] ${active ? "text-white/70" : "opacity-50"}`}>
+      <span className={`text-[11px] ${active ? "text-cyan-100/70" : "opacity-50"}`}>
         {hint}
       </span>
     </button>
@@ -520,14 +520,14 @@ function Field({
         placeholder={placeholder}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`w-full px-4 py-2.5 rounded-glass bg-black/5 border transition-colors focus:outline-none ${
+        className={`w-full px-4 py-2.5 rounded-glass bg-white/[0.04] border transition-colors focus:outline-none ${
           error
-            ? "border-red-500/50 focus:border-red-500"
-            : "border-black/10 focus:border-black/40"
+            ? "border-red-400/60 focus:border-red-400"
+            : "border-white/10 focus:border-cyan-200/50"
         }`}
       />
       {error ? (
-        <p id={`${id}-error`} className="text-red-600 text-xs mt-1">
+        <p id={`${id}-error`} className="text-red-300 text-xs mt-1">
           {error}
         </p>
       ) : null}

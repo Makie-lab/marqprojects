@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import InvertedCursor from "@/components/InvertedCursor";
 import { absoluteUrl, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -60,7 +61,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: siteConfig.themeColor,
-  colorScheme: "light",
+  colorScheme: "dark",
 };
 
 /** Person + WebSite structured data for rich search results. */
@@ -138,10 +139,13 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">
+        <InvertedCursor />
         {/* Accessibility: let keyboard users bypass the icon nav. */}
         <a href="#home" className="skip-link">
           Skip to content

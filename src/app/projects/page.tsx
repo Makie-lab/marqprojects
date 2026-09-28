@@ -78,7 +78,7 @@ function ProjectsContent() {
             <button
               type="button"
               onClick={() => setQuery("")}
-              className="p-2 rounded-full hover:bg-black/5 transition-colors"
+              className="p-2 rounded-full hover:bg-white/[0.08] transition-colors"
               aria-label="Clear search"
             >
               <X size={16} className="opacity-60" />
@@ -161,7 +161,7 @@ function ProjectsContent() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 border border-dashed border-black/10 rounded-2xl">
+          <div className="text-center py-20 border border-dashed border-white/10 rounded-2xl">
             <p className="opacity-60 mb-3">
               No projects match your search.
             </p>

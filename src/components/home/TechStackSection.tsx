@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 const TechStackFlow = dynamic(() => import("@/components/TechStackFlow"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[600px] rounded-glass-lg border border-black/10 flex items-center justify-center opacity-40">
+    <div className="w-full h-[600px] rounded-glass-lg border border-white/10 flex items-center justify-center opacity-40">
       Loading tech stack…
     </div>
   ),
