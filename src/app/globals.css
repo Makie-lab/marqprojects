@@ -89,7 +89,8 @@ body {
     radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 0 0.7px, transparent 1px),
     radial-gradient(circle at 70% 65%, rgba(139, 233, 255, 0.7) 0 0.6px, transparent 1px),
     radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.55) 0 0.6px, transparent 1px);
-  background-size: auto, auto, auto, 73px 73px, 113px 113px, 157px 157px;
+  /* Star tiles enlarged so each layer has ~60% of its previous star count. */
+  background-size: auto, auto, auto, 94px 94px, 146px 146px, 203px 203px;
   background-attachment: fixed;
 }
 
@@ -1226,69 +1227,51 @@ select option {
   }
 }
 
-/* Difference-blended cursor: white becomes the inverse of the pixels below. */
+/* Inverting cursor lens: everything inside the circle has its colors inverted. */
 .space-cursor {
   display: none;
 }
 
-.space-cursor__dot,
-.space-cursor__ring {
+.space-cursor__lens {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10000;
+  width: 44px;
+  height: 44px;
   border-radius: 999px;
   opacity: 0;
   pointer-events: none;
-  mix-blend-mode: difference;
+  background: transparent;
+  -webkit-backdrop-filter: invert(1);
+  backdrop-filter: invert(1);
   will-change: transform, width, height;
   transition:
     width 0.18s ease,
     height 0.18s ease,
-    opacity 0.18s ease,
-    background-color 0.18s ease;
+    opacity 0.18s ease;
 }
 
-.space-cursor__dot {
-  width: 10px;
-  height: 10px;
-  background: #ffffff;
+/* Fallback for browsers without backdrop-filter: white + difference = inversion. */
+@supports not ((backdrop-filter: invert(1)) or (-webkit-backdrop-filter: invert(1))) {
+  .space-cursor__lens {
+    background: #ffffff;
+    mix-blend-mode: difference;
+  }
 }
 
-.space-cursor__ring {
-  width: 34px;
-  height: 34px;
-  border: 1px solid #ffffff;
-}
-
-.space-cursor__dot.is-visible {
+.space-cursor__lens.is-visible {
   opacity: 1;
 }
 
-.space-cursor__ring.is-visible {
-  opacity: 0.66;
+.space-cursor__lens.is-interactive {
+  width: 72px;
+  height: 72px;
 }
 
-.space-cursor__dot.is-interactive {
-  width: 34px;
-  height: 34px;
-  opacity: 0.9;
-}
-
-.space-cursor__ring.is-interactive {
-  width: 54px;
-  height: 54px;
-  opacity: 0.42;
-}
-
-.space-cursor__dot.is-pressed {
-  width: 7px;
-  height: 7px;
-}
-
-.space-cursor__ring.is-pressed {
-  width: 24px;
-  height: 24px;
+.space-cursor__lens.is-pressed {
+  width: 32px;
+  height: 32px;
 }
 
 @media (pointer: fine) and (hover: hover) {
@@ -1321,8 +1304,7 @@ select option {
 
   .identity-card,
   .identity-card__image,
-  .space-cursor__dot,
-  .space-cursor__ring {
+  .space-cursor__lens {
     transition: none;
   }
 
